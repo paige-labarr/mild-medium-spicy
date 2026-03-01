@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mild Medium Spicy Swim Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Load jsPDF from CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>🏊 Swim Workout Generator</h1>
+        
+        <div class="section">
+            <h2>1. Choose Your Spice Level</h2>
+            <div class="button-group" id="intensity-group">
+                <button class="btn option-btn" data-value="mild" onclick="selectOption('intensity', 'mild')">Mild 🌶️<br><small>Just Freestyle</small></button>
+                <button class="btn option-btn" data-value="medium" onclick="selectOption('intensity', 'medium')">Medium 🌶️🌶️<br><small>Drills & Strokes</small></button>
+                <button class="btn option-btn" data-value="spicy" onclick="selectOption('intensity', 'spicy')">Spicy 🌶️🌶️🌶️<br><small>Crazy Stuff</small></button>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>2. How much time do you have?</h2>
+            <div class="button-group" id="distance-group">
+                <button class="btn option-btn" data-value="1500" onclick="selectOption('distance', '1500')">In-n-Out<br><small>1500 yds</small></button>
+                <button class="btn option-btn" data-value="3000" onclick="selectOption('distance', '3000')">I have an hour<br><small>3000 yds</small></button>
+                <button class="btn option-btn" data-value="4000" onclick="selectOption('distance', '4000')">I have no life<br><small>4000+ yds</small></button>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>3. Enter your best 100 Free time</h2>
+            <p class="subtitle">Used to calculate your intervals (Format: MM:SS, e.g., 1:30)</p>
+            <input type="text" id="base-time" placeholder="1:30" pattern="[0-9]*:[0-9]*">
+        </div>
+
+        <button class="btn generate-btn" onclick="generateWorkout()">Generate Workout</button>
+
+        <div id="workout-display" class="hidden">
+            <hr>
+            <div id="workout-content">
+                <!-- Workout text will appear here -->
+            </div>
+            <div class="stats" id="workout-stats"></div>
+            
+            <button class="btn pdf-btn" onclick="downloadPDF()">Save to PDF</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
