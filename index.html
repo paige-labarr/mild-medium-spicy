@@ -7,10 +7,11 @@
     <link rel="stylesheet" href="style.css">
     <!-- Load jsPDF from CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
-        <h1>🏊 Swim Workout Generator</h1>
+        <h1>🔥 Swim Workout Generator 🔥</h1>
         
         <div class="section">
             <h2>1. Choose Your Spice Level</h2>
@@ -24,16 +25,16 @@
         <div class="section">
             <h2>2. How much time do you have?</h2>
             <div class="button-group" id="distance-group">
-                <button class="btn option-btn" data-value="1500" onclick="selectOption('distance', '1500')">In-n-Out<br><small>1500 yds</small></button>
-                <button class="btn option-btn" data-value="3000" onclick="selectOption('distance', '3000')">I have an hour<br><small>3000 yds</small></button>
+                <button class="btn option-btn" data-value="1500" onclick="selectOption('distance', '1500')">In-n-Out<br><small>~1500 yds</small></button>
+                <button class="btn option-btn" data-value="3000" onclick="selectOption('distance', '3000')">I have an hour<br><small>~3000 yds</small></button>
                 <button class="btn option-btn" data-value="4000" onclick="selectOption('distance', '4000')">I have no life<br><small>4000+ yds</small></button>
             </div>
         </div>
 
         <div class="section">
-            <h2>3. Enter your best 100 Free time</h2>
-            <p class="subtitle">Used to calculate your intervals (Format: MM:SS, e.g., 1:30)</p>
-            <input type="text" id="base-time" placeholder="1:30" pattern="[0-9]*:[0-9]*">
+            <h2>3. Enter a "base pace" 100 free time</h2>
+            <p class="subtitle">To calculate intervals (Format: MM:SS, e.g., 1:30)</p>
+            <input type="text" id="base-time" placeholder="1:30" pattern="[0-9]*:[0-9]*" enterkeyhint="go">
         </div>
 
         <button class="btn generate-btn" onclick="generateWorkout()">Generate Workout</button>
