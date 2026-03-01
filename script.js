@@ -224,17 +224,53 @@ function generateWorkout() {
     // 4. Calculate Total Distance
     const totalDistance = selectedWarmupObj.dist + selectedMainSetObj.dist + coolDownDist;
 
+    // Motivational Quotes
+    const quotes = [
+        "\"The water is your friend... you don't have to fight with water, just share the same spirit as the water, and it will help you move.\" – Alexander Popov",
+        "\"Success isn't final, failure isn't fatal, it's the courage to continue that counts.\" – Winston Churchill",
+        "\"If you want to be the best, you have to do things that other people aren't willing to do.\" – Michael Phelps",
+        "\"Hard work beats talent when talent doesn't work hard.\" – Tim Notke",
+        "\"The only place success comes before work is in the dictionary.\" – Vidal Sassoon",
+        "\"Don't count the laps. Make the laps count.\" – Anonymous",
+        "\"Pain is temporary. Quitting lasts forever.\" – Lance Armstrong",
+        "\"You can't put a limit on anything. The more you dream, the farther you get.\" – Michael Phelps",
+        "\"It's not who's the best. It's who wants it the most.\" – Anonymous",
+        "\"Just keep swimming.\" – Dory",
+        "\"I try to make the good days great and take something positive from the days I’m not feeling good.\" – Katie Ledecky",
+        "\"I don't worry about the end result. I worry about the process.\" – Caeleb Dressel",
+        "\"Life moves pretty fast. If you don't stop and look around once in a while, you could miss it.\" – Ferris Bueller",
+        "\"We are what we repeatedly do. Excellence, then, is not an act, but a habit.\" – Aristotle",
+        "\"Believe you can and you're halfway there.\" – Theodore Roosevelt",
+        "\"It does not matter how slowly you go as long as you do not stop.\" – Confucius",
+        "\"You miss 100% of the shots you don't take.\" – Wayne Gretzky",
+        "\"The only way to do great work is to love what you do.\" – Steve Jobs",
+        "\"Have fun, because that's what life is all about.\" – Ryan Lochte",
+        "\"I think goals should never be easy, they should force you to work, even if they are uncomfortable at the time.\" – Michael Phelps",
+        "\"If it is important to you, you will find a way. If not, you’ll find an excuse.\" – Ryan Blair",
+        "\"Strength does not come from winning. Your struggles develop your strengths.\" – Arnold Schwarzenegger",
+        "\"There is no substitute for hard work.\" – Thomas Edison",
+        "\"Don't watch the clock; do what it does. Keep going.\" – Sam Levenson",
+        "\"I'm not superstitious, but I am a little stitious.\" – Michael Scott",
+        "\"People say nothing is impossible, but I do nothing every day.\" – Winnie the Pooh",
+        "\"Doing nothing is very hard to do. You never know when you're finished.\" – Leslie Nielsen",
+        "\"I always wanted to be somebody, but now I realize I should have been more specific.\" – Lily Tomlin",
+        "\"I walk around like everything’s fine, but deep down, inside my shoe, my sock is sliding off.\" – Anonymous",
+        "\"Don't take life too seriously. You will never get out of it alive.\" – Elbert Hubbard"
+    ];
+    const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+
     // Construct the display text
     const date = new Date().toLocaleDateString();
-    const title = `${selectedIntensity.toUpperCase()} - ${selectedDistance} Yards`;
+    const title = `${selectedIntensity.toUpperCase()}`;
     
-    currentWorkoutText = `SWIM WORKOUT - ${date}\n`;
+    currentWorkoutText = `${randomQuote}\n\n`;
+    currentWorkoutText += `SWIM WORKOUT - ${date}\n`;
     currentWorkoutText += `Type: ${title}\n`;
     if (baseSeconds) currentWorkoutText += `Base Pace: ${timeInput}/100\n`;
     currentWorkoutText += `----------------------------------------\n\n`;
     
     currentWorkoutText += `WARM UP:\n${selectedWarmupText}\n\n`;
-    currentWorkoutText += `MAIN SET:\n${selectedMainSetText}\n\n`;
+    currentWorkoutText += `MAIN SET (${selectedMainSetObj.dist} yds):\n${selectedMainSetText}\n\n`;
     currentWorkoutText += `COOL DOWN:\n${coolDownText}\n\n`;
     currentWorkoutText += `TOTAL DISTANCE: ${totalDistance} Yards`;
 
